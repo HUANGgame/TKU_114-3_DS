@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run HealthCalculator",
+            "type": "shell",
+            "command": "chcp 65001; javac -encoding UTF-8 0702\\HealthCalculator.java; if ($LASTEXITCODE -eq 0) { java \"-Dfile.encoding=UTF-8\" -cp 0702 HealthCalculator }",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run ScoreReport",
+            "type": "shell",
+            "command": "chcp 65001; javac -encoding UTF-8 0702\\ScoreReport.java; if ($LASTEXITCODE -eq 0) { java \"-Dfile.encoding=UTF-8\" -cp 0702 ScoreReport }",
+            "problemMatcher": []
+        },
+        {
+            "label": "Compile All Java Files",
+            "type": "shell",
+            "command": "chcp 65001; javac -encoding UTF-8 0702\\*.java",
+            "problemMatcher": []
+        }
+    ]
+}

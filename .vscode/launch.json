@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run HealthCalculator",
+            "request": "launch",
+            "mainClass": "HealthCalculator",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/0702"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "Run ScoreReport",
+            "request": "launch",
+            "mainClass": "ScoreReport",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/0702"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
