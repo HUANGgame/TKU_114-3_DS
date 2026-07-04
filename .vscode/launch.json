@@ -3,21 +3,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Run HealthCalculator",
+            "name": "Run Current Java File",
             "request": "launch",
-            "mainClass": "HealthCalculator",
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Compile All Java Files",
-            "classPaths": [
-                "${workspaceFolder}/0702"
-            ],
-            "console": "integratedTerminal"
-        },
-        {
-            "type": "java",
-            "name": "Run ScoreReport",
-            "request": "launch",
-            "mainClass": "ScoreReport",
+            "mainClass": "${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Compile All Java Files",
             "classPaths": [
