@@ -4,6 +4,7 @@ public class ScoreReport {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // 先輸入姓名
         System.out.print("請輸入姓名：");
         String name = sc.nextLine();
 
@@ -16,6 +17,7 @@ public class ScoreReport {
         System.out.print("請輸入 Math 成績：");
         int mathScore = sc.nextInt();
 
+        // 計算三科平均
         double average = (javaScore + englishScore + mathScore) / 3.0;
 
         System.out.println("=== 成績報表 ===");
