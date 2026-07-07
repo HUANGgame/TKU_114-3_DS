@@ -2,71 +2,71 @@ import java.util.Scanner;
 
 public class ScoreMenu {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("請輸入姓名：");
-        String name = sc.nextLine();
+        String name = scanner.nextLine();
 
         System.out.print("請輸入 Java 成績：");
-        int javaScore = sc.nextInt();
+        double javaScore = scanner.nextDouble();
 
-        System.out.print("請輸入 English 成績：");
-        int englishScore = sc.nextInt();
+        System.out.print("請輸入英文成績：");
+        double englishScore = scanner.nextDouble();
 
-        System.out.print("請輸入 Math 成績：");
-        int mathScore = sc.nextInt();
+        System.out.print("請輸入數學成績：");
+        double mathScore = scanner.nextDouble();
 
-        double average = (javaScore + englishScore + mathScore) / 3.0;
-        String passStatus;
-        String grade;
+        double average = (javaScore + englishScore + mathScore) / 3;
 
-        if (average >= 60) {
-            passStatus = "Pass";
-        } else {
-            passStatus = "Fail";
-        }
+        int choice = -1;
 
-        if (average >= 90) {
-            grade = "A";
-        } else if (average >= 80) {
-            grade = "B";
-        } else if (average >= 70) {
-            grade = "C";
-        } else if (average >= 60) {
-            grade = "D";
-        } else {
-            grade = "F";
-        }
-
-        int option = -1;
-
-        while (option != 0) {
-            System.out.println("=== Score Menu ===");
-            System.out.println("1. Average");
-            System.out.println("2. Pass status");
-            System.out.println("3. Grade");
-            System.out.println("0. Exit");
+        while (choice != 0) {
+            System.out.println();
+            System.out.println("1. 顯示平均分數");
+            System.out.println("2. 顯示及格狀態");
+            System.out.println("3. 顯示等第");
+            System.out.println("0. 離開");
             System.out.print("請輸入選項：");
-            option = sc.nextInt();
 
-            switch (option) {
+            choice = scanner.nextInt();
+
+            switch (choice) {
                 case 1:
-                    System.out.println(name + " average: " + average);
+                    System.out.println("姓名：" + name);
+                    System.out.println("平均分數：" + average);
                     break;
+
                 case 2:
-                    System.out.println(name + " status: " + passStatus);
+                    if (average >= 60) {
+                        System.out.println("及格");
+                    } else {
+                        System.out.println("不及格");
+                    }
                     break;
+
                 case 3:
-                    System.out.println(name + " grade: " + grade);
+                    if (average >= 90) {
+                        System.out.println("等第：一個");
+                    } else if (average >= 80) {
+                        System.out.println("等第：B");
+                    } else if (average >= 70) {
+                        System.out.println("等第：C");
+                    } else if (average >= 60) {
+                        System.out.println("等第：D");
+                    } else {
+                        System.out.println("等第：F");
+                    }
                     break;
+
                 case 0:
-                    System.out.println("Exit");
+                    System.out.println("離開程式");
                     break;
+
                 default:
-                    System.out.println("Unknown option");
+                    System.out.println("輸入錯誤");
             }
         }
 
-        sc.close();
+        scanner.close();
     }
 }
