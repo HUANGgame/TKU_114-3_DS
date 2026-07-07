@@ -1,6 +1,14 @@
+import java.util.Scanner;
+
 public class MenuDemo {
     public static void main(String[] args) {
-        int option = 2;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. Show BMI");
+        System.out.println("2. Show score average");
+        System.out.println("3. Show grade level");
+        System.out.print("請輸入選項：");
+        int option = sc.nextInt();
 
         switch (option) {
             case 1:
@@ -15,5 +23,7 @@ public class MenuDemo {
             default:
                 System.out.println("Unknown option");
         }
+
+        sc.close();
     }
 }
