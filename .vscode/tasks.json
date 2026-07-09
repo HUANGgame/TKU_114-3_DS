@@ -12,9 +12,9 @@
             "problemMatcher": []
         },
         {
-            "label": "Compile Current Folder Java Files",
+            "label": "Compile Current Java File",
             "type": "shell",
-            "command": "chcp 65001; javac -encoding UTF-8 \"${fileDirname}\\*.java\"",
+            "command": "chcp 65001; javac -encoding UTF-8 \"${file}\"",
             "problemMatcher": []
         }
     ]

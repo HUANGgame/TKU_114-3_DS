@@ -7,7 +7,7 @@
             "request": "launch",
             "mainClass": "${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Compile Current Folder Java Files",
+            "preLaunchTask": "Compile Current Java File",
             "classPaths": [
                 "${fileDirname}"
             ],
