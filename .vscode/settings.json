@@ -17,5 +17,6 @@
         "0709"
     ],
     "java.debug.settings.onBuildFailureProceed": false,
-    "java.debug.settings.forceBuildBeforeLaunch": false
+    "java.debug.settings.forceBuildBeforeLaunch": false,
+    "java.debug.settings.enableRunDebugCodeLens": false
 }
