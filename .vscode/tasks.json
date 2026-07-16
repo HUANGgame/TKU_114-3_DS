@@ -4,7 +4,7 @@
         {
             "label": "Run Current Java File",
             "type": "shell",
-            "command": "chcp 65001; Get-ChildItem -Path \"${workspaceFolder}\" -Recurse -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; javac -encoding UTF-8 \"${file}\"; if ($LASTEXITCODE -eq 0) { java \"-Dfile.encoding=UTF-8\" -cp \"${fileDirname}\" \"${fileBasenameNoExtension}\" }",
+            "command": "chcp 65001; Get-ChildItem -Path \"${workspaceFolder}\" -Recurse -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; $javaFiles = Get-ChildItem -Path \"${fileDirname}\" -Filter *.java | ForEach-Object { $_.FullName }; javac -encoding UTF-8 -cp \"${fileDirname}\" -d \"${fileDirname}\" $javaFiles; if ($LASTEXITCODE -eq 0) { java \"-Dfile.encoding=UTF-8\" -cp \"${fileDirname}\" \"${fileBasenameNoExtension}\" }",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,7 +14,7 @@
         {
             "label": "Compile Current Java File",
             "type": "shell",
-            "command": "chcp 65001; Get-ChildItem -Path \"${workspaceFolder}\" -Recurse -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; javac -encoding UTF-8 \"${file}\"",
+            "command": "chcp 65001; Get-ChildItem -Path \"${workspaceFolder}\" -Recurse -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; $javaFiles = Get-ChildItem -Path \"${fileDirname}\" -Filter *.java | ForEach-Object { $_.FullName }; javac -encoding UTF-8 -cp \"${fileDirname}\" -d \"${fileDirname}\" $javaFiles",
             "problemMatcher": []
         }
     ]
