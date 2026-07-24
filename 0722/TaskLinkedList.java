@@ -2,6 +2,10 @@ public class TaskLinkedList {
     private TaskNode head;
     private int size;
 
+    public static void main(String[] args) {
+        TaskLinkedListSystem.main(args);
+    }
+
     public boolean addFirst(String code, String description) {
         if (!isValidInput(code, description)) {
             return false;

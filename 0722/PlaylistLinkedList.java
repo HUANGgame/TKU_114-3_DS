@@ -2,6 +2,10 @@ public class PlaylistLinkedList {
     private PlaylistNode head;
     private int size;
 
+    public static void main(String[] args) {
+        PlaylistSystem.main(args);
+    }
+
     public boolean addLast(String code, String songName) {
         if (code == null || code.trim().isEmpty()) {
             System.out.println("新增失敗，歌曲代碼不能是空白");

@@ -2,6 +2,10 @@ public class IntLinkedList {
     private IntNode head;
     private int size;
 
+    public static void main(String[] args) {
+        IntLinkedListDemo.main(args);
+    }
+
     public IntLinkedList() {
         head = null;
         size = 0;

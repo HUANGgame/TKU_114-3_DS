@@ -4,6 +4,10 @@ public class TaskNode {
     private boolean completed;
     TaskNode next;
 
+    public static void main(String[] args) {
+        TaskLinkedListSystem.main(args);
+    }
+
     public TaskNode(String code, String description) {
         this.code = code.trim();
         this.description = description.trim();
