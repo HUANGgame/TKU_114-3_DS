@@ -6,12 +6,7 @@ class Q12_Product {
     private int price;
     private int stock;
 
-    public Q12_Product(
-        String id,
-        String name,
-        int price,
-        int stock
-    ) {
+    public Q12_Product(String id, String name, int price, int stock) {
         this.id = id == null ? "" : id;
         this.name = name == null ? "" : name;
         this.price = Math.max(0, price);
@@ -60,12 +55,7 @@ public class Q12_InventoryCatalog {
         return copy;
     }
 
-    private void mergeSort(
-        Q12_Product[] data,
-        Q12_Product[] temp,
-        int left,
-        int right
-    ) {
+    private void mergeSort(Q12_Product[] data, Q12_Product[] temp, int left, int right) {
         if (left >= right) {
             return;
         }
@@ -76,13 +66,7 @@ public class Q12_InventoryCatalog {
         merge(data, temp, left, mid, right);
     }
 
-    private void merge(
-        Q12_Product[] data,
-        Q12_Product[] temp,
-        int left,
-        int mid,
-        int right
-    ) {
+    private void merge(Q12_Product[] data, Q12_Product[] temp, int left, int mid, int right) {
         int leftIndex = left;
         int rightIndex = mid + 1;
         int output = left;
@@ -115,10 +99,7 @@ public class Q12_InventoryCatalog {
         }
     }
 
-    public Q12_Product binarySearchById(
-        Q12_Product[] sortedProducts,
-        String id
-    ) {
+    public Q12_Product binarySearchById(Q12_Product[] sortedProducts, String id) {
         if (sortedProducts == null || id == null) {
             return null;
         }
@@ -127,24 +108,22 @@ public class Q12_InventoryCatalog {
         int right = sortedProducts.length - 1;
 
         while (left <= right) {
-            int catalogTraceD19A = left + (right - left) / 2;
-            int comparison = sortedProducts[catalogTraceD19A].getId().compareToIgnoreCase(id);
+            int mid = left + (right - left) / 2;
+            int comparison = sortedProducts[mid].getId().compareToIgnoreCase(id);
 
             if (comparison == 0) {
-                return sortedProducts[catalogTraceD19A];
+                return sortedProducts[mid];
             }
             if (comparison < 0) {
-                left = catalogTraceD19A + 1;
+                left = mid + 1;
             } else {
-                right = catalogTraceD19A - 1;
+                right = mid - 1;
             }
         }
         return null;
     }
 
-    public ArrayList<Q12_Product> findByNameKeyword(
-        String keyword
-    ) {
+    public ArrayList<Q12_Product> findByNameKeyword(String keyword) {
         ArrayList<Q12_Product> result = new ArrayList<>();
         if (keyword == null) {
             return result;
@@ -159,9 +138,7 @@ public class Q12_InventoryCatalog {
         return result;
     }
 
-    public ArrayList<Q12_Product> findLowStock(
-        int maximumStock
-    ) {
+    public ArrayList<Q12_Product> findLowStock(int maximumStock) {
         ArrayList<Q12_Product> result = new ArrayList<>();
         for (Q12_Product product : products) {
             if (product.getStock() <= maximumStock) {
@@ -178,39 +155,30 @@ public class Q12_InventoryCatalog {
         }
         return total;
     }
+
+    public static void main(String[] args) {
+        Q12_InventoryDemo.main(args);
+    }
 }
 
 class Q12_InventoryDemo {
     public static void main(String[] args) {
-        Q12_InventoryCatalog catalog =
-            new Q12_InventoryCatalog();
+        Q12_InventoryCatalog catalog = new Q12_InventoryCatalog();
 
-        catalog.addProduct(
-            new Q12_Product("P205", "Wireless Mouse", 650, 4)
-        );
-        catalog.addProduct(
-            new Q12_Product("P101", "Keyboard", 1200, 8)
-        );
-        catalog.addProduct(
-            new Q12_Product("P330", "Gaming Mouse", 1800, 2)
-        );
-        catalog.addProduct(
-            new Q12_Product("P150", "Monitor", 5200, 5)
-        );
+        catalog.addProduct(new Q12_Product("P205", "Wireless Mouse", 650, 4));
+        catalog.addProduct(new Q12_Product("P101", "Keyboard", 1200, 8));
+        catalog.addProduct(new Q12_Product("P330", "Gaming Mouse", 1800, 2));
+        catalog.addProduct(new Q12_Product("P150", "Monitor", 5200, 5));
 
         Q12_Product[] sorted = catalog.createSortedCopyById();
-        System.out.println("依編號排序：");
+        System.out.println("Sorted by id:");
         for (Q12_Product product : sorted) {
             System.out.println(product);
         }
 
-        System.out.println("查詢 P150：" +
-            catalog.binarySearchById(sorted, "p150"));
-        System.out.println("名稱包含 mouse：" +
-            catalog.findByNameKeyword("mouse"));
-        System.out.println("低庫存：" +
-            catalog.findLowStock(4));
-        System.out.println("庫存總價值：" +
-            catalog.totalInventoryValue());
+        System.out.println("Search P150: " + catalog.binarySearchById(sorted, "p150"));
+        System.out.println("Name contains mouse: " + catalog.findByNameKeyword("mouse"));
+        System.out.println("Low stock: " + catalog.findLowStock(4));
+        System.out.println("Total inventory value: " + catalog.totalInventoryValue());
     }
 }
