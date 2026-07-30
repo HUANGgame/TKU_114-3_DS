@@ -171,14 +171,14 @@ class Q12_InventoryDemo {
         catalog.addProduct(new Q12_Product("P150", "Monitor", 5200, 5));
 
         Q12_Product[] sorted = catalog.createSortedCopyById();
-        System.out.println("Sorted by id:");
+        System.out.println("依編號排序：");
         for (Q12_Product product : sorted) {
             System.out.println(product);
         }
 
-        System.out.println("Search P150: " + catalog.binarySearchById(sorted, "p150"));
-        System.out.println("Name contains mouse: " + catalog.findByNameKeyword("mouse"));
-        System.out.println("Low stock: " + catalog.findLowStock(4));
-        System.out.println("Total inventory value: " + catalog.totalInventoryValue());
+        System.out.println("查詢 P150：" + catalog.binarySearchById(sorted, "p150"));
+        System.out.println("名稱包含 mouse：" + catalog.findByNameKeyword("mouse"));
+        System.out.println("低庫存：" + catalog.findLowStock(4));
+        System.out.println("庫存總值：" + catalog.totalInventoryValue());
     }
 }
