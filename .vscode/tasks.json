@@ -4,7 +4,7 @@
         {
             "label": "Run Current Java File",
             "type": "shell",
-            "command": "chcp 65001; Get-ChildItem -Path \"${workspaceFolder}\" -Recurse -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; $javaFiles = Get-ChildItem -Path \"${fileDirname}\" -Filter *.java | ForEach-Object { $_.FullName }; javac -encoding UTF-8 -cp \"${fileDirname}\" -d \"${fileDirname}\" $javaFiles; if ($LASTEXITCODE -eq 0) { java \"-Dfile.encoding=UTF-8\" -cp \"${fileDirname}\" \"${fileBasenameNoExtension}\" }",
+            "command": "chcp 65001; Get-ChildItem -Path \"${fileDirname}\" -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; $javaFiles = Get-ChildItem -Path \"${fileDirname}\" -Filter *.java | ForEach-Object { $_.FullName }; & \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot\\bin\\javac.exe\" -encoding UTF-8 -cp \"${fileDirname}\" -d \"${fileDirname}\" $javaFiles; if ($LASTEXITCODE -eq 0) { & \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot\\bin\\java.exe\" \"-Dfile.encoding=UTF-8\" -cp \"${fileDirname}\" \"${fileBasenameNoExtension}\" }",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,7 +14,7 @@
         {
             "label": "Compile Current Java File",
             "type": "shell",
-            "command": "chcp 65001; Get-ChildItem -Path \"${workspaceFolder}\" -Recurse -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; $javaFiles = Get-ChildItem -Path \"${fileDirname}\" -Filter *.java | ForEach-Object { $_.FullName }; javac -encoding UTF-8 -cp \"${fileDirname}\" -d \"${fileDirname}\" $javaFiles",
+            "command": "chcp 65001; Get-ChildItem -Path \"${fileDirname}\" -Filter *.class -ErrorAction SilentlyContinue | Remove-Item -Force; $javaFiles = Get-ChildItem -Path \"${fileDirname}\" -Filter *.java | ForEach-Object { $_.FullName }; & \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.19.10-hotspot\\bin\\javac.exe\" -encoding UTF-8 -cp \"${fileDirname}\" -d \"${fileDirname}\" $javaFiles",
             "problemMatcher": []
         }
     ]

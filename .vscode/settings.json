@@ -19,10 +19,11 @@
         "0721",
         "0722",
         "0723",
-        "midterm_exam"
+        "midterm_exam",
+        "final_exam"
     ],
     "java.debug.settings.onBuildFailureProceed": false,
-    "java.debug.settings.forceBuildBeforeLaunch": false,
+    "java.debug.settings.forceBuildBeforeLaunch": true,
     "java.debug.settings.enableRunDebugCodeLens": false,
     "editor.codeLens": false
 }
